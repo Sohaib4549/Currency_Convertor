@@ -1,0 +1,75 @@
+//code to convert currency from pkr to usd,euro,yen,indian rupee,pounds
+ 
+class Dollars {
+  double amount;
+  Dollars(this.amount);
+  @override
+  String toString() {
+    return '\$$amount';
+  }
+}
+class Euros {
+  double amount;
+  Euros(this.amount);
+  @override
+  String toString() {
+    return '€$amount';
+  }
+}
+class Yen {
+  double amount;
+  Yen(this.amount);
+  @override
+  String toString() {
+    return '¥$amount';
+  }
+}
+class IndianRupee {
+  double amount;
+  IndianRupee(this.amount);
+  @override
+  String toString() {
+    return '₹$amount';
+  }
+}
+class Pounds {
+  double amount;
+  Pounds(this.amount);
+  @override
+  String toString() {
+    return '£$amount';
+  }
+}
+class CurrencyConverter {
+  double pkrToDollars(double amount) {
+        return amount / 283;
+  }
+  double pkrToEuros(double amount) {
+    return amount / 304;
+  }
+  double pkrToYen(double amount) {
+    return amount / 39;
+  }
+  double pkrToIndianRupee(double amount) {
+    return amount / 3;
+  }
+  double pkrToPounds(double amount) {
+    return amount / 320;
+  }
+}
+void main() {
+  double pkrAmount = 1000;
+  CurrencyConverter converter = CurrencyConverter();
+  Dollars dollars = Dollars(converter.pkrToDollars(pkrAmount));
+  Euros euros = Euros(converter.pkrToEuros(pkrAmount));
+  Yen yen = Yen(converter.pkrToYen(pkrAmount));
+  IndianRupee indianRupee = IndianRupee(converter.pkrToIndianRupee(pkrAmount));
+  Pounds pounds = Pounds(converter.pkrToPounds(pkrAmount));
+  print('PKR: $pkrAmount');
+  print('\nConverted amounts:');
+  print('Dollars: $dollars');
+  print('Euros: $euros');
+  print('Yen: $yen');
+  print('Indian Rupee: $indianRupee');
+  print('Pounds: $pounds');
+}
